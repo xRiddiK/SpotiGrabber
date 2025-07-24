@@ -54,6 +54,8 @@ npm install
 ```
 http://127.0.0.1:3000/api/callback
 ```
+![](https://raw.githubusercontent.com/xRiddiK/SpotiGrabber/refs/heads/main/frontend/screenshots/Screenshot_8.png)
+![](https://raw.githubusercontent.com/xRiddiK/SpotiGrabber/refs/heads/main/frontend/screenshots/Screenshot_9.png)
 
 ### 4. Add Environment Variables
 - Create a .env file in /frontend
