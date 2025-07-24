@@ -1,0 +1,9 @@
+@import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  @apply bg-gradient-to-br from-zinc-900 via-zinc-800 to-zinc-950 text-white min-h-screen;
+  font-family: 'Inter', sans-serif;
+}
