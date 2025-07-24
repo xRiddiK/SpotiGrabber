@@ -4,12 +4,13 @@ Create a playlist on Spotify with **all available tracks from your favorite arti
 
 Built with **Next.js App Router**, **TypeScript**, and the **Spotify Web API**.
 
+[Live Demo](https://sg.jxcs.space/)
+
 ![](https://raw.githubusercontent.com/xRiddiK/SpotiGrabber/refs/heads/main/frontend/screenshots/Screenshot_4.png)
 ![](https://raw.githubusercontent.com/xRiddiK/SpotiGrabber/refs/heads/main/frontend/screenshots/Screenshot_5.png)
 ![](https://raw.githubusercontent.com/xRiddiK/SpotiGrabber/refs/heads/main/frontend/screenshots/Screenshot_6.png)
 ![](https://raw.githubusercontent.com/xRiddiK/SpotiGrabber/refs/heads/main/frontend/screenshots/Screenshot_7.png)
 
-[Live Demo](https://sg.jxcs.space/)
 ---
 
 ## 🚀 Features
