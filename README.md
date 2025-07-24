@@ -36,8 +36,8 @@ Built with **Next.js App Router**, **TypeScript**, and the **Spotify Web API**.
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/your-username/spotify-artist-grabber.git
-cd spotify-artist-grabber/frontend
+git clone https://github.com/xRiddiK/SpotiGrabber.git
+cd SpotiGrabber/frontend
 ```
 
 ### 2. Install Dependencies
