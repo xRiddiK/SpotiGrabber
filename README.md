@@ -31,6 +31,12 @@ Built with **Next.js App Router**, **TypeScript**, and the **Spotify Web API**.
 
 ---
 
+## 📋 Requirements
+
+- [Node.js](https://nodejs.org/) (v18+ recommended)
+- [pnpm](https://pnpm.io/) *(optional but recommended for faster installs)*
+- Basic knowledge of JavaScript/TypeScript and the terminal
+
 ## 🛠️ Setup Instructions
 
 ### 1. Clone the Repository
@@ -94,4 +100,3 @@ Success!
 ## Authors
 
 - [@JXCS](https://github.com/xRiddiK)
-
