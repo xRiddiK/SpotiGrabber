@@ -10,6 +10,7 @@ Built with **Next.js App Router**, **TypeScript**, and the **Spotify Web API**.
 ![](https://raw.githubusercontent.com/xRiddiK/SpotiGrabber/refs/heads/main/frontend/screenshots/Screenshot_5.png)
 ![](https://raw.githubusercontent.com/xRiddiK/SpotiGrabber/refs/heads/main/frontend/screenshots/Screenshot_6.png)
 ![](https://raw.githubusercontent.com/xRiddiK/SpotiGrabber/refs/heads/main/frontend/screenshots/Screenshot_7.png)
+![](https://raw.githubusercontent.com/xRiddiK/SpotiGrabber/refs/heads/main/frontend/screenshots/Screenshot_12.png)
 
 ---
 
