@@ -9,6 +9,7 @@ export default function Home() {
   const [playlistUrl, setPlaylistUrl] = useState('');
   const [loading, setLoading] = useState(false);
   const [removing, setRemoving] = useState(false);
+  const [suggestions, setSuggestions] = useState<any[]>([]);
 
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
@@ -78,6 +79,12 @@ export default function Home() {
     }
   };
 
+  const handleSearch = async (query: string) => {
+    const res = await fetch(`/api/search-artist?q=${encodeURIComponent(query)}&token=${accessToken}`);
+    const data = await res.json();
+    setSuggestions(data.artists);
+  };
+
   return (
     <main className="min-h-screen bg-[#121212] flex items-center justify-center px-6">
       <div className="max-w-md w-full bg-[#181818] rounded-lg shadow-lg p-8 flex flex-col gap-6">
@@ -97,7 +104,7 @@ export default function Home() {
           </button>
         ) : (
           <>
-            <input
+            {/*<input
               type="text"
               placeholder="Artist name"
               value={artistName}
@@ -105,7 +112,41 @@ export default function Home() {
               className="w-full px-4 py-3 rounded-full bg-[#282828] placeholder-[#b3b3b3] text-white text-lg focus:outline-none focus:ring-2 focus:ring-[#1DB954] transition"
               spellCheck={false}
               autoComplete="off"
+            />*/}
+            <input
+              type="text"
+              placeholder="Artist name"
+              className="w-full px-4 py-3 rounded-full bg-[#282828] placeholder-[#b3b3b3] text-white text-lg focus:outline-none focus:ring-2 focus:ring-[#1DB954] transition"
+              value={artistName}
+              onChange={(e) => {
+                const query = e.target.value;
+                setArtistName(query);
+                if (query.length > 1) {
+                  handleSearch(query);
+                } else {
+                  setSuggestions([]);
+                }
+              }}
             />
+            {suggestions.length > 0 && (
+              <div className="bg-[#202020] rounded-lg mt-2 shadow-md max-h-60 overflow-y-auto">
+                {suggestions.map((artist) => (
+                  <div
+                    key={artist.id}
+                    className="flex items-center gap-3 px-4 py-2 hover:bg-[#2a2a2a] cursor-pointer"
+                    onClick={() => {
+                      setArtistName(artist.name);
+                      setSuggestions([]);
+                    }}
+                  >
+                    {artist.images?.[0]?.url && (
+                      <img src={artist.images[0].url} alt={artist.name} className="w-8 h-8 rounded-full" />
+                    )}
+                    <span className="text-white">{artist.name}</span>
+                  </div>
+                ))}
+              </div>
+            )}
 
             <button
               onClick={createPlaylist}
