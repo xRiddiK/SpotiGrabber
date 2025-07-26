@@ -4,6 +4,8 @@ Create a playlist on Spotify with **all available tracks from your favorite arti
 
 Built with **Next.js App Router**, **TypeScript**, and the **Spotify Web API**.
 
+[Live Demo](https://sg.jxcs.space/)
+
 ![](https://raw.githubusercontent.com/xRiddiK/SpotiGrabber/refs/heads/main/frontend/screenshots/Screenshot_4.png)
 ![](https://raw.githubusercontent.com/xRiddiK/SpotiGrabber/refs/heads/main/frontend/screenshots/Screenshot_5.png)
 ![](https://raw.githubusercontent.com/xRiddiK/SpotiGrabber/refs/heads/main/frontend/screenshots/Screenshot_6.png)
@@ -31,13 +33,19 @@ Built with **Next.js App Router**, **TypeScript**, and the **Spotify Web API**.
 
 ---
 
+## 📋 Requirements
+
+- [Node.js](https://nodejs.org/) (v22+ recommended)
+- [pnpm](https://pnpm.io/) *(optional but recommended for faster installs)*
+- Basic knowledge of JavaScript/TypeScript and the terminal
+
 ## 🛠️ Setup Instructions
 
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/your-username/spotify-artist-grabber.git
-cd spotify-artist-grabber/frontend
+git clone https://github.com/xRiddiK/SpotiGrabber.git
+cd SpotiGrabber/frontend
 ```
 
 ### 2. Install Dependencies
@@ -94,4 +102,3 @@ Success!
 ## Authors
 
 - [@JXCS](https://github.com/xRiddiK)
-
