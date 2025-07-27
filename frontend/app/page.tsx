@@ -10,6 +10,7 @@ export default function Home() {
   const [loading, setLoading] = useState(false);
   const [removing, setRemoving] = useState(false);
   const [suggestions, setSuggestions] = useState<any[]>([]);
+  const [skipInstrumentals, setSkipInstrumentals] = useState(false);
 
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
@@ -40,7 +41,7 @@ export default function Home() {
       const res = await fetch('/api/create-playlist', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ artistName, accessToken }),
+        body: JSON.stringify({ artistName, accessToken, skipInstrumentals }),
       });
       const data = await res.json();
       setMessage(data.message);
@@ -128,6 +129,15 @@ export default function Home() {
                 }
               }}
             />
+            <label className="flex items-center gap-2 text-[#b3b3b3] text-sm">
+              <input
+                type="checkbox"
+                checked={skipInstrumentals}
+                onChange={(e) => setSkipInstrumentals(e.target.checked)}
+                className="form-checkbox bg-[#282828] accent-[#1DB954]"
+              />
+              Skip instrumental tracks
+            </label>
             {suggestions.length > 0 && (
               <div className="bg-[#202020] rounded-lg mt-2 shadow-md max-h-60 overflow-y-auto">
                 {suggestions.map((artist) => (

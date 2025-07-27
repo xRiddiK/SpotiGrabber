@@ -3,7 +3,7 @@ import axios from 'axios';
 
 export async function POST(req: NextRequest) {
     try {
-        const { artistName, accessToken } = await req.json();
+        const { artistName, accessToken, skipInstrumentals } = await req.json();
 
         const userRes = await axios.get('https://api.spotify.com/v1/me', {
             headers: { Authorization: `Bearer ${accessToken}` },
@@ -31,15 +31,29 @@ export async function POST(req: NextRequest) {
             next = albumsRes.data.next;
         }
 
+        //ToDo add a check to skip instrumentals and remixes
         const trackIdsSet = new Set<string>();
+        const allTracks: any[] = [];
+
         for (const album of albums) {
             const tracksRes = await axios.get(`https://api.spotify.com/v1/albums/${album.id}/tracks`, {
                 headers: { Authorization: `Bearer ${accessToken}` },
             });
-            tracksRes.data.items.forEach((track: any) => trackIdsSet.add(track.id));
+
+            tracksRes.data.items.forEach((track: any) => {
+                allTracks.push(track);
+            });
         }
 
-        const trackIds = Array.from(trackIdsSet);
+        const filteredTracks = skipInstrumentals
+            ? allTracks.filter(
+                (track) =>
+                    !track.name.toLowerCase().includes('instrumental') &&
+                    !(track.explicit === false && track.duration_ms < 90000)
+            )
+            : allTracks;
+
+        const trackIds = [...new Set(filteredTracks.map((track) => track.id))];
 
         let playlistName = `All songs by ${artistName}`;
         const cleanArtistName = artistName.trim();
@@ -49,8 +63,6 @@ export async function POST(req: NextRequest) {
         if (matchesArtist(cleanArtistName, 'lil peep')) {
             playlistName = 'Rest Easy Peep 🖤';
         }
-        console.log('cleanArtistName:', cleanArtistName);
-        console.log('matchesArtist result:', matchesArtist(cleanArtistName, 'lil peep'));
 
         const playlistRes = await axios.post(
             `https://api.spotify.com/v1/users/${userId}/playlists`,
