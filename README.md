@@ -67,7 +67,7 @@ http://127.0.0.1:3000/api/callback
 ![](https://raw.githubusercontent.com/xRiddiK/SpotiGrabber/refs/heads/main/frontend/screenshots/Screenshot_9.png)
 
 ### 4. Add Environment Variables
-- Create a .env file in /frontend
+- Create a .env file in /frontend (optionally just rename ".env.example" to ".env")
 ```
 CLIENT_ID=your_spotify_client_id
 CLIENT_SECRET=your_spotify_client_secret
