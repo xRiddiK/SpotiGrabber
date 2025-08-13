@@ -1,4 +1,5 @@
 # 🎵 Spotify Artist Grabber
+#### Keep in mind that this project is a “free time project” and still “work in progress,” so you may encounter bugs or missing features. You are free to use it as-is via the website or host your own version. Feel free to open pull requests for fixes or new features.
 
 Create a playlist on Spotify with **all available tracks from your favorite artist** — albums, singles, and compilations included!
 
