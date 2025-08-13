@@ -69,10 +69,11 @@ http://127.0.0.1:3000/api/callback
 ### 4. Add Environment Variables
 - Create a .env file in /frontend (optionally just rename ".env.example" to ".env")
 ```
+NEXT_PUBLIC_API_URL=http://127.0.0.1:3000
 CLIENT_ID=your_spotify_client_id
 CLIENT_SECRET=your_spotify_client_secret
 REDIRECT_URI=http://127.0.0.1:3000/api/callback
-NEXT_PUBLIC_API_URL=http://127.0.0.1:3000
+FRONTEND_URI=http://127.0.0.1:3000
 ```
 
 ### Run the App Locally

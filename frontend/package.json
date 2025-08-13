@@ -9,10 +9,21 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@heroui/progress": "^2.2.20",
+    "@heroui/react": "^2.8.2",
+    "@heroui/spinner": "^2.2.21",
+    "@heroui/system": "^2.4.20",
+    "@heroui/theme": "^2.4.20",
+    "@radix-ui/react-progress": "^1.1.7",
     "axios": "^1.11.0",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
+    "framer-motion": "^12.23.12",
+    "lucide-react": "^0.539.0",
     "next": "15.4.3",
     "react": "19.1.0",
-    "react-dom": "19.1.0"
+    "react-dom": "19.1.0",
+    "tailwind-merge": "^3.3.1"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",
@@ -20,6 +31,7 @@
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "tailwindcss": "^4",
+    "tw-animate-css": "^1.3.6",
     "typescript": "^5"
   }
 }

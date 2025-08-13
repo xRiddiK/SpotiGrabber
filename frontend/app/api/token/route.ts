@@ -1,9 +1,6 @@
 import { NextResponse } from 'next/server';
 import axios from 'axios';
-
-const CLIENT_ID = process.env.CLIENT_ID!;
-const CLIENT_SECRET = process.env.CLIENT_SECRET!;
-const REDIRECT_URI = process.env.REDIRECT_URI!;
+import { ENV } from "@/lib/env";
 
 export async function POST(req: Request) {
     const { code } = await req.json();
@@ -12,9 +9,9 @@ export async function POST(req: Request) {
         const params = new URLSearchParams({
             grant_type: 'authorization_code',
             code,
-            redirect_uri: REDIRECT_URI,
-            client_id: CLIENT_ID,
-            client_secret: CLIENT_SECRET,
+            redirect_uri: ENV.REDIRECT_URI,
+            client_id: ENV.CLIENT_ID,
+            client_secret: ENV.CLIENT_SECRET,
         });
 
         const response = await axios.post('https://accounts.spotify.com/api/token', params.toString(), {

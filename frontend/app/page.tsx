@@ -1,6 +1,6 @@
 'use client';
-
 import React, { useState, useEffect } from 'react';
+import { MusicPlayer } from "@/app/components/musicplayer"
 
 export default function Home() {
   const [accessToken, setAccessToken] = useState<string | null>(null);
@@ -87,7 +87,13 @@ export default function Home() {
   };
 
   return (
-    <main className="min-h-screen bg-[#121212] flex items-center justify-center px-6">
+    <main className="min-h-screen bg-[#121212] flex items-center justify-center px-6 pb-32">
+      {loading && (
+        <div className="absolute inset-0 bg-black/50 backdrop-blur-sm flex flex-col items-center justify-center z-50">
+          <div className="w-12 h-12 border-4 border-[#1DB954] border-t-transparent rounded-full animate-spin"></div>
+          <p className="mt-4 text-white text-lg font-semibold">Creating your playlist...</p>
+        </div>
+      )}
       <div className="max-w-md w-full bg-[#181818] rounded-lg shadow-lg p-8 flex flex-col gap-6">
         <h1 className="text-3xl font-bold text-white font-sans text-center select-none">
           Spotify Artist Grabber
@@ -105,15 +111,6 @@ export default function Home() {
           </button>
         ) : (
           <>
-            {/*<input
-              type="text"
-              placeholder="Artist name"
-              value={artistName}
-              onChange={(e) => setArtistName(e.target.value)}
-              className="w-full px-4 py-3 rounded-full bg-[#282828] placeholder-[#b3b3b3] text-white text-lg focus:outline-none focus:ring-2 focus:ring-[#1DB954] transition"
-              spellCheck={false}
-              autoComplete="off"
-            />*/}
             <input
               type="text"
               placeholder="Artist name"
@@ -193,6 +190,14 @@ export default function Home() {
           </p>
         )}
       </div>
+      {accessToken && playlistUrl && (
+        <div className="fixed bottom-0 left-0 w-full z-50">
+          <MusicPlayer
+            accessToken={accessToken!}
+            playlistUrl={playlistUrl}
+          />
+        </div>
+      )}
     </main>
   );
 }

@@ -1,14 +1,13 @@
 import { NextResponse } from 'next/server';
+import { ENV } from "@/lib/env";
 
-const CLIENT_ID = process.env.CLIENT_ID!;
-const REDIRECT_URI = process.env.REDIRECT_URI!;
-const SCOPES = 'playlist-modify-public playlist-modify-private user-read-private';
+const SCOPES = 'playlist-modify-public playlist-modify-private user-read-private streaming user-read-email user-modify-playback-state user-read-playback-state';
 
 export async function GET() {
   const params = new URLSearchParams({
-    client_id: CLIENT_ID,
+    client_id: ENV.CLIENT_ID,
     response_type: 'code',
-    redirect_uri: REDIRECT_URI,
+    redirect_uri: ENV.REDIRECT_URI,
     scope: SCOPES,
   });
 

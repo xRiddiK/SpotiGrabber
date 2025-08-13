@@ -1,10 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import axios from 'axios';
-
-const CLIENT_ID = process.env.CLIENT_ID!;
-const CLIENT_SECRET = process.env.CLIENT_SECRET!;
-const REDIRECT_URI = process.env.REDIRECT_URI!;
-const FRONTEND_URI = process.env.FRONTEND_URI!;
+import { ENV } from "@/lib/env";
 
 export async function GET(req: NextRequest) {
     const code = req.nextUrl.searchParams.get('code');
@@ -17,9 +13,9 @@ export async function GET(req: NextRequest) {
         const params = new URLSearchParams({
             grant_type: 'authorization_code',
             code,
-            redirect_uri: REDIRECT_URI,
-            client_id: CLIENT_ID,
-            client_secret: CLIENT_SECRET,
+            redirect_uri: ENV.REDIRECT_URI,
+            client_id: ENV.CLIENT_ID,
+            client_secret: ENV.CLIENT_SECRET,
         });
 
         const tokenRes = await axios.post('https://accounts.spotify.com/api/token', params.toString(), {
@@ -28,7 +24,7 @@ export async function GET(req: NextRequest) {
 
         const access_token = tokenRes.data.access_token;
 
-        return NextResponse.redirect(`${FRONTEND_URI}/?access_token=${access_token}`);
+        return NextResponse.redirect(`${ENV.FRONTEND_URI}/?access_token=${access_token}`);
     } catch (error) {
         console.error(error);
         return NextResponse.json({ error: 'Failed to get token' }, { status: 500 });
